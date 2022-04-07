@@ -30,14 +30,14 @@ function App() {
       </div>
       <h1>Problem 2 (part ii)</h1>
       <div className="P3">
-        <Allbtn name="Join US" ></Allbtn>
-        <Allbtn name="Settings" ></Allbtn>
-        <Allbtn name="Log in"></Allbtn>
-        <Allbtn name="Contacts"></Allbtn>
-        <Allbtn name="Search"></Allbtn>
-        <Allbtn name="Help"></Allbtn>
-        <Allbtn name="Home"></Allbtn>
-        <Allbtn name="Download"></Allbtn>
+        <Allbtn id="B2" name="Join US" ></Allbtn>
+        <Allbtn id="B1" name="Settings" ></Allbtn>
+        <Allbtn  id="B3" name="Log in"></Allbtn>
+        <Allbtn id="B4" name="Contacts"></Allbtn>
+        <Allbtn id="B5" name="Search"></Allbtn>
+        <Allbtn id="B6" name="Help"></Allbtn>
+        <Allbtn id="B7" name="Home"></Allbtn>
+        <Allbtn id="B8" name="Download"></Allbtn>
       </div>
     </div>
   );

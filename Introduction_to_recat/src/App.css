@@ -73,9 +73,30 @@
   grid-template-rows: auto;
   gap: 15px;
 }
-.App .P3 Allbtn:first-child{
+.App .P3 #B3{
   background-color: green;
 }
-.App .P3 button:last-child{
-  background-color:red;
+.App .P3 #B1{
+  background-color: blue;
 }
+
+.App .P3 #B2{
+  background-color: pink;
+}
+.App .P3 #B4{
+  background-color: red;
+}
+.App .P3 #B5{
+  background-color:yellow;
+}
+.App .P3 #B6{
+  background-color: purple;
+}
+.App .P3 #B7{
+  background-color: teal;
+}
+.App .P3 #B8{
+  background-color: teal;
+}
+
+

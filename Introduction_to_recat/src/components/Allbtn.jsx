@@ -2,7 +2,7 @@ import React from "react";
 function Allbtn(props){
     return (
         <div className="Btn">
-            <button >{props.name}</button>
+            <button id={props.id}>{props.name}</button>
         </div>
     )
 }

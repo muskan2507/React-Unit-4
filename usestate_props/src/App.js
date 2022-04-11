@@ -1,6 +1,7 @@
   import React from "react"
 import './App.css';
 import Counter from "./components/Counter.jsx";
+import Todo from "./components/Todo.jsx";
 
 function App() {
   
@@ -12,6 +13,9 @@ function App() {
     <Counter/>
 
   <h1>Problem 2</h1>
+ <div>
+ <Todo></Todo>
+ </div>
     </div>
   );
 }

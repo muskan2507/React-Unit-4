@@ -2,10 +2,11 @@ import React from "react";
 import { useContext } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { AuthContext } from "../context/AuthContext";
 import { Form } from "./EditBookData";
+import { Logout } from "./Logout";
 
 // add input styling
 export const Input = styled.input`
@@ -22,7 +23,8 @@ export const Login = () => {
   const from = location?.state?.from?.pathname || "/books";
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleLogin(email, password);
+    handleLogin();
+    navigate("logout")
   };
   useEffect(() => {
     if (token) {
@@ -31,7 +33,8 @@ export const Login = () => {
   }, [token]);
   return (
     <>
-      <Form onSubmit={handleSubmit}>
+     <Routes>
+       <Route path="/" element={ <Form onSubmit={handleSubmit}>
         <Input
           data-testid="login-form-email"
           placeholder="Enter Email"
@@ -47,7 +50,9 @@ export const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <Input value = "Login" type={"submit"} data-testid="login-form-submit" />
-      </Form>
+      </Form>}/>
+      <Route path="logout" element={<Logout/>}/>
+     </Routes>
     </>
   );
 };

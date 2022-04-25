@@ -6,19 +6,20 @@ const AuthContext = React.createContext();
 const AuthContextProvider = ({ children }) => {
   const [token, setToken] = useState("");
 
-  const handleLogin = async(email, password) => {
+  const handleLogin = async() => {
     //  api request to reqres.in for the token
     let res = await fetch("https://reqres.in/api/login",{
       method:"POST",
-      header:{"content-type":"application/json"},
+      headers:{"content-type":"application/json"},
       body:JSON.stringify({
         
-          "email": "eve.holt@reqres.in",
-          "password": "cityslicka"
+          email: "eve.holt@reqres.in",
+          password: "cityslicka"
       
       })
     })
     let data = await res.json()
+    // console.log(data)
     setToken(data.token)
     
   };

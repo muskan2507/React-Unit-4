@@ -9,9 +9,9 @@ import { Logout } from "../pages/Logout";
 import { Navbar } from "../pages/Navbar";
 import { SingleBook } from "../pages/SingleBook";
 import { RequiredAuth } from "./RequiredAuth";
-
+import { AuthContext } from "../context/AuthContext";
 const Mainroutes = () => {
-  
+  const {token}=React.useContext(AuthContext)
   return (
     <>
     
@@ -20,9 +20,14 @@ const Mainroutes = () => {
        {/* keep all the routes here  */}
        {/* /books/* route need to be protected */}
        <Route path="about" element={ <About/>}/>
-       <Route path="login" element={ <Login/>}/>
+       <Route path="login/*" element={<Login/>}/>
+
+        
+       
        <Route path="/" element={ <Home/>}/>
-       <Route path="books" element={ <Books/>}/>
+       <Route path="books" element={ <RequiredAuth/>}>
+         <Route path=":id" element={<SingleBook/>}/>
+       </Route>
       </Routes>
      
     </>

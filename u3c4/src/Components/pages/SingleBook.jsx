@@ -1,4 +1,4 @@
-import axios from "axios";
+
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -11,7 +11,7 @@ const Flex = styled.div``;
 // add style for button
 export const Button = styled.button``;
 export const SingleBook = () => {
-  console.log(params);
+  // console.log(params);
   useEffect(() => {
     // make a GET request to http://localhost:8080/books/${id}`
     // use useParams to get the id
@@ -19,8 +19,9 @@ export const SingleBook = () => {
 
   return (
     <>
+    <h1>Hello</h1>
       {/* added basic data you can add more and make a good UI around it */}
-      {!!data && (
+      {/* {!!data && (
         <>
           <Flex>
             <img
@@ -36,9 +37,9 @@ export const SingleBook = () => {
           </Flex>
           <Link to={`/books/${data.id}/edit`}>
             <Button>Edit</Button>
-          </Link>
-        </>
-      )}
+          </Link> */}
+        {/* </>
+      )} */}
     </>
   );
 };

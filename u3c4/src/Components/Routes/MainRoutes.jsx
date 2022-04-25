@@ -1,4 +1,4 @@
-import react from "react";
+import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { About } from "../pages/About";
 import Books from "../pages/Books";
@@ -11,13 +11,20 @@ import { SingleBook } from "../pages/SingleBook";
 import { RequiredAuth } from "./RequiredAuth";
 
 const Mainroutes = () => {
+  
   return (
     <>
-      <Navbar />
+    
+     <Navbar />
       <Routes>
        {/* keep all the routes here  */}
        {/* /books/* route need to be protected */}
+       <Route path="about" element={ <About/>}/>
+       <Route path="login" element={ <Login/>}/>
+       <Route path="/" element={ <Home/>}/>
+       <Route path="books" element={ <Books/>}/>
       </Routes>
+     
     </>
   );
 };

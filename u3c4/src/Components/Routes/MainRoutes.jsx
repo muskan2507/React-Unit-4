@@ -25,9 +25,9 @@ const Mainroutes = () => {
         
        
        <Route path="/" element={ <Home/>}/>
-       <Route path="books" element={ <RequiredAuth/>}>
-         <Route path=":id" element={<SingleBook/>}/>
-       </Route>
+       <Route path="books" element={ <RequiredAuth/>}/>
+         <Route path="books/:id" element={<SingleBook/>}/>
+       
       </Routes>
      
     </>

@@ -12,21 +12,22 @@ const Flex = styled.div``;
 export const Button = styled.button``;
 export const SingleBook = () => {
   const {id}=useParams()
-  console.log(id)
-  const [data,setData]=useState([])
+  console.log("id",id)
+  const [data,setData]=useState({})
   // console.log(params);
   useEffect(() => {
     // make a GET request to http://localhost:8080/books/${id}`
     // use useParams to get the id
+    let get =async ()=>{
+      let res = await fetch(`http://localhost:8080/books/${id}`);
+      let d = await res.json()
+      setData({...d})
+      console.log("data",d)
+    }
     get()
     
-  }, []);
-  let get =async ()=>{
-    let res = await fetch("http://localhost:8080/books/${id}");
-    let data = await res.json()
-    setData(data)
-    console.log(data)
-  }
+  }, [id]);
+  
   return (
     <>
    
@@ -36,7 +37,7 @@ export const SingleBook = () => {
           <Flex>
             <img
               data-testid="book-image-url"
-              src={data[id].thumbnailUrl}
+              src={data.thumbnailUrl}
               alt={data.title}
             />
             <div>
@@ -47,7 +48,7 @@ export const SingleBook = () => {
           </Flex>
           <Link to={`/books/${data.id}/edit`}>
             <Button>Edit</Button>
-          </Link> 
+          </Link>
         </>
       )}
     </>

@@ -11,7 +11,7 @@ import { SingleBook } from "../pages/SingleBook";
 import { RequiredAuth } from "./RequiredAuth";
 import { AuthContext } from "../context/AuthContext";
 const Mainroutes = () => {
-  const {token}=React.useContext(AuthContext)
+  
   return (
     <>
     
@@ -25,9 +25,9 @@ const Mainroutes = () => {
         
        
        <Route path="/" element={ <Home/>}/>
-       <Route path="books" element={ <RequiredAuth/>}/>
+       <Route path="books" element={ <RequiredAuth><Books/></RequiredAuth>}/>
          <Route path="books/:id" element={<SingleBook/>}/>
-       
+         <Route path="books/:id/edit" element={<EditBookData/>}/>
       </Routes>
      
     </>

@@ -6,13 +6,17 @@ import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
 
 // style for Flex
-const Flex = styled.div``;
+const Flex = styled.div`
+display:flex;
+width:80%;
+margin:auto;
+`;
 
 // add style for button
 export const Button = styled.button``;
 export const SingleBook = () => {
   const {id}=useParams()
-  console.log("id",id)
+  // console.log("id",id)
   const [data,setData]=useState({})
   // console.log(params);
   useEffect(() => {
@@ -22,7 +26,7 @@ export const SingleBook = () => {
       let res = await fetch(`http://localhost:8080/books/${id}`);
       let d = await res.json()
       setData({...d})
-      console.log("data",d)
+      // console.log("data",d)
     }
     get()
     

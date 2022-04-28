@@ -16,7 +16,7 @@ export const EditBookData = () => {
   const {id}=useParams()
   let navigate=useNavigate()
   const [FormData,setFotmData]=useState({})
-  const [data,setData]=useState([])
+  // const [data,setData]=useState([])
   const handleChange=(e)=>{
     // console.log(e)
     let name=e.target.name
@@ -28,7 +28,7 @@ export const EditBookData = () => {
   const patch=async(FormData)=> {
     let res = await fetch(`http://localhost:8080/books/${id}`,{
       method:"PATCH",
-      haeders:{"content-type":"application/json"},
+      headers:{"content-type":"application/json"},
       body:JSON.stringify(FormData)
     })
     let data = await res.json()
@@ -40,7 +40,7 @@ export const EditBookData = () => {
     // on successfull request navigate to previous page
     console.log(FormData)
     patch(FormData)
-    // navigate(-1)z  
+    navigate(-1)
   };
 
   return (

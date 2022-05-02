@@ -1,14 +1,16 @@
-import { Flex } from "./Styled";
+import { Detail, Flex, Img, ImgBox, Title } from "./Styled";
 
-export const ProductCard = ({ title,id,image,brand,price }) => {
+export const ProductCard = ({ item }) => {
   return (
     <>
-      <Flex data-testid="single-product-item" key={id}>
-        {/* display item info here  */}
-        <h4>{title}</h4>
-        <img src={image}/>
-         <p>{brand}</p>
-         <p>Price:{price}</p>
+      <Flex data-testid="single-product-item" key={item.id}>
+        <ImgBox>
+          <Img src={item.image} />
+        </ImgBox>
+        <Title>{item.title}</Title>
+        <Detail>{item.brand}</Detail>
+        <Detail>{item.category}</Detail>
+        <Detail>Rs. {item.price}</Detail>
       </Flex>
     </>
   );

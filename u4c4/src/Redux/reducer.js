@@ -1,4 +1,10 @@
-import { FILTER_PRODUCTS, GET_PRODUCTS_SUCCESS, GET_PRODUCTS_ERROR, GET_PRODUCTS_LOADING, SORT_PRODUCTS } from "./actionTypes";
+import {
+  FILTER_DATA,
+  GET_DATA,
+  IS_ERROR,
+  IS_LOADING,
+  SORT_DATA,
+} from "./actionTypes";
 
 const initState = {
   data: [],
@@ -10,53 +16,42 @@ const initState = {
 
 const reducer = (state = initState, { type, payload }) => {
   switch (type) {
-    case GET_PRODUCTS_LOADING:
+    case GET_DATA: {
+      return {
+        ...state,
+        products: [...payload],
+        data: [...payload],
+        isError: false,
+        isLoading: false,
+      };
+    }
+    case IS_LOADING: {
       return {
         ...state,
         isLoading: true,
-        iSError: false,
-        data: [],
-        filterData: [],
-        products: []
       };
-    case GET_PRODUCTS_ERROR:
-      return {
-        ...state,
-        isLoading: false,
-        iSError: true,
-        data: [],
-        filterData: [],
-        products: []
-      };
-    case GET_PRODUCTS_SUCCESS:
-      return {
-        ...state,
-        isLoading: false,
-        iSError: false,
-        data: [],
-        filterData: [],
-        products: payload
-      };
-      case SORT_PRODUCTS:
-        return {
-          ...state,
-          isLoading: false,
-          iSError: false,
-           data:payload.sort((a,b)=>a-b),
-          filterData: [],
-          products: []
-        };
-        case FILTER_PRODUCTS:
-          return {
-            ...state,
-            isLoading: false,
-            iSError: false,
-            data: [],
-            filterData: payload,
-            products: []
-          };
-    default:
-      return state;
     }
+    case IS_ERROR: {
+      return {
+        ...state,
+        isError: true,
+      };
+    }
+    case FILTER_DATA: {
+      return {
+        ...state,
+        filterData: [...payload],
+      };
+    }
+    case SORT_DATA: {
+      return {
+        ...state,
+        products: [...payload],
+      };
+    }
+    default: {
+      return initState;
+    }
+  }
 };
 export { reducer };
